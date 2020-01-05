@@ -32,18 +32,12 @@ class KataTest extends TestCase
 
     public function expressionMatter(int $a, int $b, int $c)
     {
-        $results = [];
-        $largestNumber = 0;
-        $results[] = $a * $b * $c;
-        $results[] = $a + $b + $c;
-        $results[] = $a + $b * $c;
-        $results[] = ($a + $b) * $c;
-        $results[] = $a * ($b + $c);
-
-        foreach ($results as $result)
-            if ($result > $largestNumber)
-                $largestNumber = $result;
-
-        return $largestNumber;
+        return max([
+            $a * $b * $c,
+            $a + $b + $c,
+            $a + $b * $c,
+            ($a + $b) * $c,
+            $a * ($b + $c)
+        ]);
     }
 }
